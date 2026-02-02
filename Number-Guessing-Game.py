@@ -47,20 +47,23 @@ def play_game():
         guess = int(user_input)
         attempts += 1  # 試行回数をカウント
         print(f"残りライフ: {life - 1}")
+        hint = ""
 
         # 3. 判定ロジック
         if guess == secret_number:
             print(f"正解！おめでとう！ 🎉")
             print(f"あなたは {attempts} 回で当てました。")
             break  # 正解したのでループを抜ける
-        elif abs(guess - secret_number) <= 5:
-            print("めちゃくちゃ近いよ！")
-        elif abs(guess - secret_number) <= 10:
-            print("近いよ！")
         elif guess < secret_number:
-            print("もっと大きいよ！ ↑")
+            hint = "もっと大きいよ！ ↑"
         elif guess > secret_number:
-            print("もっと小さいよ！ ↓")
+            hint = "もっと小さいよ！ ↓"
+        if abs(guess - secret_number) <= 5:
+            print(f"めちゃくちゃ近いよ！ {hint}")
+        elif abs(guess - secret_number) <= 10:
+            print(f"近いよ！ {hint}")
+        else:
+            print(hint)
         life -= 1  # ライフを減らす
         if life == 0:
             print(f"あなたはライフを使い切りました。正解は {secret_number} でした。")
