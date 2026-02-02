@@ -5,6 +5,7 @@ def play_game():
     # 1. コンピューターが1〜100の間でランダムな数字を選ぶ
     secret_number = random.randint(1, 100)
     attempts = 0
+    life = 5
 
     print("--- 数当てゲームへようこそ！ ---")
     print("1から100までの数字を当ててみてね。")
@@ -30,6 +31,11 @@ def play_game():
             print(f"正解！おめでとう！ 🎉")
             print(f"あなたは {attempts} 回で当てました。")
             break  # 正解したのでループを抜ける
+
+        life -= 1  # ライフを減らす
+        if life == 0:
+            print(f"あなたはライフを使い切りました")
+            break  # ライフを使い切ったのでループを抜ける
 
 
 if __name__ == "__main__":
