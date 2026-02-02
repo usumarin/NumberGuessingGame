@@ -46,6 +46,7 @@ def play_game():
 
         guess = int(user_input)
         attempts += 1  # 試行回数をカウント
+        print(f"残りライフ: {life - 1}")
 
         # 3. 判定ロジック
         if guess == secret_number:
