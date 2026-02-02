@@ -63,7 +63,7 @@ def play_game():
             print("もっと小さいよ！ ↓")
         life -= 1  # ライフを減らす
         if life == 0:
-            print(f"あなたはライフを使い切りました")
+            print(f"あなたはライフを使い切りました。正解は {secret_number} でした。")
             break  # ライフを使い切ったのでループを抜ける
 
 
