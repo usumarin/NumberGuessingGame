@@ -5,11 +5,34 @@ def play_game():
     # 1. コンピューターが1〜100の間でランダムな数字を選ぶ
     secret_number = random.randint(1, 100)
     attempts = 0
-    life = 5
 
     print("--- 数当てゲームへようこそ！ ---")
     print("1から100までの数字を当ててみてね。")
+    print("簡単は20回 普通は10回 難しいは5回の回数制限があります。")
 
+    while True:  # 難易度選択
+        level_input = input(
+            "難易度を選択してください 簡単は1 普通は2 難しいは3を入力してください。"
+        )
+        if not level_input.isdigit():
+            print("エラー：半角数字を入力してください。")
+            continue
+        level_input = int(level_input)
+        if level_input == 1:
+            life = 20
+            print("簡単で開始します。")
+            break
+        elif level_input == 2:
+            life = 10
+            print("普通で開始します。")
+            break
+        elif level_input == 3:
+            life = 5
+            print("難しいで開始します。")
+            break
+        else:
+            ("レベルを選択してください 簡単は1 普通は2 難しいは3を入力してください。")
+            continue
     while True:
         # 2. ユーザーの入力を受け取る
         user_input = input("数字を入力してください: ")
